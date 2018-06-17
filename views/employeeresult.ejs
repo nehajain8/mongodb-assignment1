@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/stylesheets/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/static/javascripts/bootstrap.js"></script>
+</head>
+
+<div class="container findemployees">
+        <h1>Mongo db </h1>
+    <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/search">Find</a></li>
+    </ul>
+    <p>Find employees based on below criteria</p>
+
+    <ul><li><a href="/result/employee1">Employee with Salary > 7000</a></li>
+    <li><a href="/result/employee2">Sort based on dateofjoining</a></li>
+    <li><a href="/result/employee3">Sort based on salary in ascending order</a></li>
+    <li><a href="/result/employee4">salary in between 5000 to 40000</a></li>
+    <li><a href="/result/employee5">>Designation is not a developer</a></li>
+    <li><a href="/result/employee6">Sort based on city in descending order</a></li>
+    <li><a href="/result/employee7">whose city starts with Singapore and
+        salary is greater than 8000</a></li>
+    <li><a href="/result/employee8">remove employee whose designation is developer.</a></li>
+    <li><a href="/result/employee9">Delete collection.</a></li></ul>
+   
+<div class=result>
+        <p> <%= message %></p>
+        <% if (employee!=null) { %>
+        <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Designation</th>
+                  <th>salary</th>
+                  <th>Date of joining</th>
+                  <th>City</th>
+                </tr>
+        <% employee.forEach(function(obj){ %>
+                <tr>
+                    <td><%= obj.Ename %></td>
+                    <td><%= obj.department %> </td>
+                    <td><%= obj.designation %> </td>
+                    <td><%= obj.salary %> </td>
+                    <td><%= obj.dateofjoining %></td>
+                    <td><%= obj.city %> </td>
+                </tr>
+                <%})%>
+        </table>
+        <% } %>
+        
+</div> 
+<a href="/search" class="btn-info back">back</a>
+</div>   
+</html>
+
